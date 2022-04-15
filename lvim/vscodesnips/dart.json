@@ -1,0 +1,212 @@
+{
+  "Part statement": {
+    "prefix": "pts",
+    "body": [
+      "part '${TM_FILENAME_BASE}.g.dart';"
+    ],
+    "description": "Creates a filled-in part statement"
+  },
+  "Part 'Freezed' statement": {
+    "prefix": "ptf",
+    "body": [
+      "part '${TM_FILENAME_BASE}.freezed.dart';"
+    ],
+    "description": "Creates a filled-in freezed part statement"
+  },
+  "Freezed Data Class": {
+    "prefix": "fdataclass",
+    "body": [
+      "@freezed",
+      "class ${1:DataClass} with _$${1:DataClass} {",
+      "  const ${1:DataClass}._();",
+      "  const factory ${1:DataClass}(${2}) = _${1:DataClass};",
+      "}"
+    ],
+    "description": "Freezed Data Class"
+  },
+  "Freezed Union": {
+    "prefix": "funion",
+    "body": [
+      "@freezed",
+      "class ${1:Union} with _$${1:Union} {",
+      "  const ${1:Union}._();",
+      "  const factory ${1:Union}.${2}(${4}) = ${3};",
+      "}"
+    ],
+    "description": "Freezed Union"
+  },
+  "Freezed Union Case": {
+    "prefix": "funioncase",
+    "body": [
+      "const factory ${1:Union}.${2}(${4}) = ${3};"
+    ],
+    "description": "Freezed Union Case"
+  },
+  "From JSON": {
+    "prefix": "fromJson",
+    "body": [
+      "factory ${1}.fromJson(Map<String, dynamic> json) => _$${1}FromJson(json);"
+    ],
+    "description": "From JSON"
+  },
+  "Class With Filename": {
+    "prefix": "classfile",
+    "body": [
+      "class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} {${1}}"
+    ],
+    "description": "Creates class which shares the name of the file"
+  },
+  "Full test": {
+    "prefix": "ftest",
+    "body": [
+      "import 'package:mockito/mockito.dart';",
+      "import 'package:flutter_test/flutter_test.dart';",
+      "",
+      "void main() {",
+      "",
+      "  setUp(() {",
+      "    ",
+      "  });",
+      "",
+      "  test('${1:test description}',",
+      "  () async {",
+      "    //? arrange",
+      "    ",
+      "    //* act",
+      "    ",
+      "    //! assert",
+      "  ",
+      "  });",
+      "}"
+    ],
+    "description": "Create a full empty test initial file content"
+  },
+  "Create a test setup method": {
+    "prefix": "set",
+    "body": [
+      "setUp(() {",
+      "  $0",
+      "});"
+    ]
+  },
+  "Create an ARRANGE, ACT, ASSERT test": {
+    "prefix": "aaa",
+    "body": [
+      "test('${1:test description}',",
+      "() async {",
+      "  //? arrange",
+      "  $2",
+      "  //* act",
+      "  $3",
+      "  //! assert",
+      "  $4",
+      "});"
+    ]
+  },
+  "Mock request": {
+    "description": "Create method to mock a request",
+    "prefix": "mRequest",
+    "body": [
+      "PostExpectation mockRequest() =>",
+      "  when($1);"
+    ]
+  },
+  "Mock success": {
+    "description": "Create method to mock success request",
+    "prefix": "mrSuccess",
+    "body": [
+      "void mockSuccess(dynamic data) => mockRequest().thenAnswer((_) async => data);"
+    ]
+  },
+  "Mock error": {
+    "description": "Create method to mock error request",
+    "prefix": "mrError",
+    "body": [
+      "void mockError(dynamic exception) => mockRequest().thenThrow(exception);"
+    ]
+  },
+  "InfiniteStatelessWidget": {
+    "description": "Create a InfiniteStatelessWidget",
+    "prefix": "islw",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:infinitepay_dashboard_flutter/core/widgets/infinite_stateful_widget.dart';",
+      "class $1 extends InfiniteStatelessWidget {",
+      "\t$1({",
+      "\t  Key? key,",
+      "\t  String? widgetName,",
+      "\t  int? id,",
+      "\t}) : super(",
+      "\t       key: key,",
+      "\t       className: className,",
+      "\t       id: id,",
+      "\t       widgetName: widgetName,",
+      "\t     );",
+      "\t",
+      "\tstatic const className = '$1';",
+      "\t",
+      "\t@override",
+      "\tWidget build(BuildContext context) {",
+      "\t  return Container();",
+      "\t}",
+      "}"
+    ]
+  },
+  "InfiniteStatefulWidget": {
+    "description": "Create a InfiniteStateFulWidget",
+    "prefix": "isfw",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:infinitepay_dashboard_flutter/core/widgets/infinite_stateful_widget.dart';",
+      "",
+      "class $1 extends InfiniteStateFulWidget {",
+      "\t$1({",
+      "\t  Key? key,",
+      "\t  String? widgetName,",
+      "\t  int? id,",
+      "\t}) : super(",
+      "\t       key: key,",
+      "\t       className: className,",
+      "\t       id: id,",
+      "\t       widgetName: widgetName,",
+      "\t     );",
+      "\t",
+      "\t  static const className = '$1';",
+      "\t",
+      "\t  @override",
+      "\t  _$1State createState() => _$1State();",
+      "\t}",
+      "\t",
+      "class _$1State extends State<$1> {",
+      "\t  @override",
+      "\t  Widget build(BuildContext context) {",
+      "\t    return Container();",
+      "\t  }",
+      "\t}"
+    ]
+  },
+  "InfinitePay controller": {
+    "description": "Create a infinite pay controller",
+    "prefix": "ipcontroller",
+    "body": [
+      "import 'package:mobx/mobx.dart';",
+      "part '${TM_FILENAME_BASE/(.*)/${1:/downcase}/}.g.dart';",
+      "",
+      "class $1 = _$1Base with _$$1;",
+      "",
+      "abstract class _$1Base extends InfiniteController with Store {",
+      "\t${0}",
+      "\t@override",
+      "\tdispose() {",
+      "\t}",
+      "}"
+    ]
+  },
+  "Mockito": {
+    "description": "Create a mockito mock",
+    "prefix": "mock",
+    "body": [
+      "class $1Mock extends Mock implements $1 {}"
+    ]
+  }
+}
