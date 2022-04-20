@@ -1,6 +1,6 @@
 alias cfg='cd ~/.config/'
-alias dev='cd /Users/acacio/dev/'
-alias app='cd /Users/acacio/dev/app/'
+alias dev='cd $HOME/dev/'
+alias app='cd $HOME/dev/app/'
 alias lcfg='cd ~/.config/lvim/'
 alias ecfg='lvim ~/.config/lvim/config.lua'
 
