@@ -1,16 +1,14 @@
 set PATH /usr/local/bin $PATH
-set PATH /Users/acacio/dev/flutter/bin $PATH
-set PATH /Users/acacio/nvim-osx64/bin $PATH
+set PATH $HOME/dev/flutter/bin $PATH
+set PATH $HOME/nvim-osx64/bin $PATH
 set PATH /opt/homebrew/bin $PATH
-set PATH /usr/local/bin:/usr/local/sbin $PATH
-#set PATH /Users/acacio/dev/flutter/bin/cache/dart-sdk/bin $PATH
-#set PATH /opt/homebrew/bin $PATH
-set PATH /Users/acacio/dev/flutter/.pub-cache/bin $PATH
-set PATH /Users/acacio/.pub-cache/bin $PATH
+set PATH $HOME/.local/bin/ $PATH
+set PATH $HOME/dev/flutter/.pub-cache/bin $PATH
+set PATH $HOME/.pub-cache/bin $PATH
 
 set PATH /opt/homebrew/opt/openjdk/bin $PATH
 set PATH /opt/homebrew/sbin $PATH
-set PATH /Users/acacio/.local/bin $PATH
+set PATH $HOME/.local/bin $PATH
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/acacio/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/acacio/Downloads/google-cloud-sdk/path.fish.inc'; end
+if [ -f '$HOME/Downloads/google-cloud-sdk/path.fish.inc' ]; . '$HOME/Downloads/google-cloud-sdk/path.fish.inc'; end
